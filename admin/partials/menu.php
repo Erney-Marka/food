@@ -13,9 +13,9 @@
     <div class="menu text__center">
         <div class="wrapper">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Admin</a></li>
-                <li><a href="#">Category</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="manage_admin.php">Admin</a></li>
+                <li><a href="manage_category.php">Category</a></li>
                 <li><a href="#">Food</a></li>
                 <li><a href="#">Order</a></li>
             </ul>
