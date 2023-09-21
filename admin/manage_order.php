@@ -1,15 +1,11 @@
 <?php require_once 'partials/menu.php'; ?>
 
-
 <!-- Main Content Section Start -->
 <div class="main__content">
     <div class="wrapper">
-        <h1 class="text__center">Manage Admin</h1>
+        <h1 class="text__center">Manage Order</h1>
 
-        <!-- Button to add Admin -->
-        <a href="add_admin.php" class="btn__primary text__center">Add Admin</a>
-
-        <!-- Table Admin Start -->
+        <!-- Table Order Start -->
         <table class="tbl__full">
             <tr>
                 <th>S.N.</th>
@@ -22,8 +18,8 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="update_admin.php" class="btn__secondary text__center">Update Admin</a>
-                    <a href="delete_admin.php" class="btn__danger text__center">Delete Admin</a>
+                    <a href="#" class="btn__secondary text__center">Update Order</a>
+                    <a href="#" class="btn__danger text__center">Delete Order</a>
                 </td>
             </tr>
             <tr>
@@ -31,12 +27,14 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="update_admin.php" class="btn__secondary text__center">Update Admin</a>
-                    <a href="delete_admin.php" class="btn__danger text__center">Delete Admin</a>
+                    <a href="#" class="btn__secondary text__center">Update Order</a>
+                    <a href="#" class="btn__danger text__center">Delete Order</a>
                 </td>
             </tr>
         </table>
-        <!-- Table Admin End -->
+        <!-- Table Order End -->
+
+
         <div class="clearfix"></div>
     </div>
 </div>

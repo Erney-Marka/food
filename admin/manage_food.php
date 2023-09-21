@@ -1,15 +1,13 @@
 <?php require_once 'partials/menu.php'; ?>
 
-
 <!-- Main Content Section Start -->
 <div class="main__content">
     <div class="wrapper">
-        <h1 class="text__center">Manage Admin</h1>
+        <h1 class="text__center">Manage Food</h1>
+        <!-- Button to add Food -->
+        <a href="#" class="btn__primary text__center">Add Food</a>
 
-        <!-- Button to add Admin -->
-        <a href="add_admin.php" class="btn__primary text__center">Add Admin</a>
-
-        <!-- Table Admin Start -->
+        <!-- Table Food Start -->
         <table class="tbl__full">
             <tr>
                 <th>S.N.</th>
@@ -22,8 +20,8 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="update_admin.php" class="btn__secondary text__center">Update Admin</a>
-                    <a href="delete_admin.php" class="btn__danger text__center">Delete Admin</a>
+                    <a href="#" class="btn__secondary text__center">Update Food</a>
+                    <a href="#" class="btn__danger text__center">Delete Food</a>
                 </td>
             </tr>
             <tr>
@@ -31,12 +29,14 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="update_admin.php" class="btn__secondary text__center">Update Admin</a>
-                    <a href="delete_admin.php" class="btn__danger text__center">Delete Admin</a>
+                    <a href="#" class="btn__secondary text__center">Update Food</a>
+                    <a href="#" class="btn__danger text__center">Delete Food</a>
                 </td>
             </tr>
         </table>
-        <!-- Table Admin End -->
+        <!-- Table Food End -->
+
+
         <div class="clearfix"></div>
     </div>
 </div>

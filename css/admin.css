@@ -19,6 +19,72 @@
     clear: both;
 }
 
+
+/* CSS for Table */
+.tbl__full {
+    width: 100%;
+}
+table tr th {
+    border-bottom: 1px solid black;    
+    padding: 1%;
+    padding-top: 2%;
+    text-align: left;
+}
+table tr td {
+    padding: 1%;
+}
+
+
+/* CSS for Table */
+.btn__primary {
+    background-color: #1e90ff;    
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.btn__primary:hover, .btn__primary__admin:hover {
+    background-color: #3742fa;
+    transition: 0.5s;
+}
+
+.btn__secondary {
+    background-color: #48c670;    
+    padding: 2%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 2%;    
+    font-weight: 600;
+    border-radius: 10px;
+}
+.btn__secondary:hover {
+    background-color: #3ca55d;
+    transition: 0.5s;
+}
+
+.btn__danger {
+    background-color: #ff6b81;    
+    padding: 2%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.btn__danger:hover {
+    background-color: #ff4757;
+    transition: 0.5s;
+}
+
+
 /* CSS for Menu */
 .menu {
     border-bottom: 1px solid gray;
@@ -51,6 +117,26 @@
     margin: 1%;
     padding: 2%;
     float: left;
+}
+
+/* CSS for Form Add Admin */
+
+.input_admin {
+padding: 1%;
+margin: 1%;
+border-radius: 10px;
+}
+.btn__primary__admin {
+    border: none;
+    background-color: #1e90ff;    
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-weight: 600;
+    border-radius: 10px;
 }
 
 

@@ -4,7 +4,7 @@
     <!-- Main Content Section Start -->
     <div class="main__content">
         <div class="wrapper">
-            <h1>DASHBOARD</h1>
+            <h1 class="text__center">DASHBOARD</h1>
 
             <div class="col-4 text__center">
                 <h1>5</h1>
