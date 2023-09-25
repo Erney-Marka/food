@@ -1,5 +1,5 @@
 <?php require_once 'partials/menu.php'; ?>
-<?php require_once 'includes/signup.inc.php'; ?>
+<?php require_once '../includes/signup.inc.php'; ?>
 
 <div class="main__content">
     <div class="wrapper">
@@ -20,6 +20,17 @@
             </div>
             <button type="submit" name="submit" class="btn__primary__admin">Add New Admin</button>
         </form>
+
+        <?php
+        var_dump($_SESSION['add']);
+        if (isset($_SESSION['add']) === 'stmtfailed') {
+            echo '<p class="error text__center">Failed to Add Admin!</p>';
+            unset($_SESSION['add']);
+        } elseif (isset($_SESSION['add']) === 'emptyinput') {
+            echo '<p class="error text__center">Fill in all fields!</p>';
+            unset($_SESSION['add']);
+        }
+        ?>
     </div>
 </div>
 <?php require_once 'partials/footer.php'; ?>

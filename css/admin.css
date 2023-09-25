@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -24,12 +24,14 @@
 .tbl__full {
     width: 100%;
 }
+
 table tr th {
-    border-bottom: 1px solid black;    
+    border-bottom: 1px solid black;
     padding: 1%;
     padding-top: 2%;
     text-align: left;
 }
+
 table tr td {
     padding: 1%;
 }
@@ -37,7 +39,7 @@ table tr td {
 
 /* CSS for Table */
 .btn__primary {
-    background-color: #1e90ff;    
+    background-color: #1e90ff;
     padding: 1%;
     color: white;
     text-decoration: none;
@@ -47,29 +49,15 @@ table tr td {
     font-weight: 600;
     border-radius: 10px;
 }
-.btn__primary:hover, .btn__primary__admin:hover {
+
+.btn__primary:hover,
+.btn__primary__admin:hover {
     background-color: #3742fa;
     transition: 0.5s;
 }
 
 .btn__secondary {
-    background-color: #48c670;    
-    padding: 2%;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 2%;
-    margin-bottom: 2%;    
-    font-weight: 600;
-    border-radius: 10px;
-}
-.btn__secondary:hover {
-    background-color: #3ca55d;
-    transition: 0.5s;
-}
-
-.btn__danger {
-    background-color: #ff6b81;    
+    background-color: #48c670;
     padding: 2%;
     color: white;
     text-decoration: none;
@@ -79,6 +67,24 @@ table tr td {
     font-weight: 600;
     border-radius: 10px;
 }
+
+.btn__secondary:hover {
+    background-color: #3ca55d;
+    transition: 0.5s;
+}
+
+.btn__danger {
+    background-color: #ff6b81;
+    padding: 2%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
 .btn__danger:hover {
     background-color: #ff4757;
     transition: 0.5s;
@@ -89,28 +95,33 @@ table tr td {
 .menu {
     border-bottom: 1px solid gray;
 }
+
 .menu ul {
     list-style: none;
 }
+
 .menu ul li {
     display: inline;
-    padding: 1%;   
+    padding: 1%;
 }
+
 .menu ul li a {
     text-decoration: none;
     font-weight: bold;
     color: #ff6b81;
 }
+
 .menu ul li a:hover {
     color: #ff4757;
     transition: 0.5s;
 }
 
 /* CSS for Main Content */
-.main__content {    
+.main__content {
     background-color: #f1f2f6;
     padding: 3% 0;
 }
+
 .col-4 {
     width: 18%;
     background-color: white;
@@ -122,13 +133,14 @@ table tr td {
 /* CSS for Form Add Admin */
 
 .input_admin {
-padding: 1%;
-margin: 1%;
-border-radius: 10px;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
 }
+
 .btn__primary__admin {
     border: none;
-    background-color: #1e90ff;    
+    background-color: #1e90ff;
     padding: 1%;
     color: white;
     text-decoration: none;
@@ -137,6 +149,20 @@ border-radius: 10px;
     margin-bottom: 1%;
     font-weight: 600;
     border-radius: 10px;
+}
+
+.error__none {
+    padding: 2%;
+    background-color: #b9eeca;
+    border-radius: 20px;
+    margin-top: 3%;
+}
+
+.error {
+    padding: 2%;
+    background-color: #f8aeb9 ;
+    border-radius: 20px;
+    margin-top: 3%;
 }
 
 

@@ -1,4 +1,8 @@
-<?php require_once 'partials/menu.php'; ?>
+<?php
+require_once 'partials/menu.php';
+$admins = mysqli_query($conn, 'SELECT * FROM tbl_admin');
+$admins = mysqli_fetch_all($admins);
+?>
 
 
 <!-- Main Content Section Start -->
@@ -17,27 +21,28 @@
                 <th>Username</th>
                 <th>Action</th>
             </tr>
-            <tr>
-                <td>1.</td>
-                <td>Anna</td>
-                <td>AnnaUsr</td>
-                <td>
-                    <a href="update_admin.php" class="btn__secondary text__center">Update Admin</a>
-                    <a href="delete_admin.php" class="btn__danger text__center">Delete Admin</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td>Anna</td>
-                <td>AnnaUsr</td>
-                <td>
-                    <a href="update_admin.php" class="btn__secondary text__center">Update Admin</a>
-                    <a href="delete_admin.php" class="btn__danger text__center">Delete Admin</a>
-                </td>
-            </tr>
+
+            <?php foreach ($admins as $admin) { ?>
+                <tr>
+                    <td><?php echo $admin[0]; ?></td>
+                    <td><?php echo $admin[1]; ?></td>
+                    <td><?php echo $admin[2]; ?></td>
+                    <td>
+                        <a href="update_admin.php?id=<?php $admin[0]; ?>" class="btn__secondary text__center">Update Admin</a>
+                        <a href="delete_admin.php?id=<?php $admin[0]; ?>" class="btn__danger text__center">Delete Admin</a>
+                    </td>
+                </tr>
+            <?php } ?>
         </table>
         <!-- Table Admin End -->
         <div class="clearfix"></div>
+
+        <?php
+        if (isset($_SESSION['add']) == 'success') {
+            echo '<p class="error__none text__center">Admin Added Successfully!</p>';
+            unset($_SESSION['add']);
+        }
+        ?>
     </div>
 </div>
 <!-- Main Content Section End -->
