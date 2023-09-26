@@ -11,6 +11,54 @@ function emptyInputSignup ($fullName, $username, $pwd) {
     return $result;
 }
 
+// проверка на существование имени и логина пользователя
+function nameExists($conn, $fullName, $username) {
+    $sql = "SELECT * FROM tbl_admin WHERE full_name = ? OR username = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['add'] = 'stmtfailed';
+        header('Location: ../admin/add_admin.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ss', $fullName, $username);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) { 
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+}
+
+// проверка значений переданных как полное имя
+function invalidName($fullName) {
+    $result = "";
+
+    if (!preg_match("/^[a-zA-Z0-9]*$/", $fullName)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}
+// проверка значений переданных как username
+function invalidUsername($username) {
+    $result = "";
+
+    if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}
 
 
 

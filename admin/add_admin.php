@@ -22,14 +22,25 @@
         </form>
 
         <?php
-        var_dump($_SESSION['add']);
-        if (isset($_SESSION['add']) === 'stmtfailed') {
-            echo '<p class="error text__center">Failed to Add Admin!</p>';
-            unset($_SESSION['add']);
-        } elseif (isset($_SESSION['add']) === 'emptyinput') {
-            echo '<p class="error text__center">Fill in all fields!</p>';
-            unset($_SESSION['add']);
+        if (isset($_SESSION['add'])) {
+            if ($_SESSION['add'] === 'stmtfailed') {
+                echo '<p class="error text__center">Failed to add admin!</p>';
+                unset($_SESSION['add']);
+            } elseif ($_SESSION['add'] === 'emptyinput') {
+                echo '<p class="error text__center">Fill in all fields!</p>';
+                unset($_SESSION['add']);
+            } elseif ($_SESSION['add'] === 'usernametaken') {
+                echo '<p class="error text__center">Username already taken!</p>';
+                unset($_SESSION['add']);
+            } elseif ($_SESSION['add'] === 'invalidname') {
+                echo '<p class="error text__center">Choose a proper full name!</p>';
+                unset($_SESSION['add']);
+            } elseif ($_SESSION['add'] === 'invalidusername') {
+                echo '<p class="error text__center">Choose a proper username!</p>';
+                unset($_SESSION['add']);
+            }
         }
+
         ?>
     </div>
 </div>
