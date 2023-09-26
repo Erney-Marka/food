@@ -28,8 +28,8 @@ $admins = mysqli_fetch_all($admins);
                     <td><?php echo $admin[1]; ?></td>
                     <td><?php echo $admin[2]; ?></td>
                     <td>
-                        <a href="update_admin.php?id=<?php $admin[0]; ?>" class="btn__secondary text__center">Update Admin</a>
-                        <a href="delete_admin.php?id=<?php $admin[0]; ?>" class="btn__danger text__center">Delete Admin</a>
+                        <a href="update_admin.php?id=<?php echo $admin[0]; ?>" class="btn__secondary text__center">Update Admin</a>
+                        <a href="delete_admin.php?id=<?php echo $admin[0]; ?>" class="btn__danger text__center">Delete Admin</a>
                     </td>
                 </tr>
             <?php } ?>
@@ -41,6 +41,26 @@ $admins = mysqli_fetch_all($admins);
         if (isset($_SESSION['add']) == 'success') {
             echo '<p class="error__none text__center">Admin Added Successfully!</p>';
             unset($_SESSION['add']);
+        }
+
+        // var_dump($_SESSION['delete']);
+        if (isset($_SESSION['delete'])) {
+            if ($_SESSION['delete'] === 'delete') {
+                echo '<p class="error__none text__center">Admin Successfully Removed!</p>';
+                unset($_SESSION['delete']);
+            } elseif ($_SESSION['delete'] === 'error_delete') {
+                echo '<p class="error text__center">A deletion error occurred!</p>';
+                unset($_SESSION['delete']);
+            }
+        }
+
+        if (isset($_SESSION['update'])) {
+            if ($_SESSION['update'] === 'error_update') {
+                echo '<p class="error text__center">Admin not Available!</p>';
+                unset($_SESSION['update']);
+            } elseif ($_SESSION['update'] === 'update') {
+                echo '<p class="error__none text__center">Data changed successfully!</p>';
+            }
         }
         ?>
     </div>

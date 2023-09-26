@@ -60,8 +60,6 @@ function invalidUsername($username) {
     return $result;
 }
 
-
-
 // создание пользователя
 function createUser($conn, $fullName, $username, $pwd)
 {
@@ -84,4 +82,10 @@ function createUser($conn, $fullName, $username, $pwd)
     $_SESSION['add'] = 'success';
     header('Location: ../admin/manage_admin.php');
     exit();
+}
+
+// обновление пользователя
+function updateUser($conn, $fullName, $username) {
+    $sql = "UPDATE tbl_admin SET full_name = ?, username = ? WHERE tbl_admin;";
+
 }
