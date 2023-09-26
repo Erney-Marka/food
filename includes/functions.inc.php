@@ -85,7 +85,12 @@ function createUser($conn, $fullName, $username, $pwd)
 }
 
 // обновление пользователя
-function updateUser($conn, $fullName, $username) {
-    $sql = "UPDATE tbl_admin SET full_name = ?, username = ? WHERE tbl_admin;";
+function updateUser($conn, $id, $fullName, $username) {
+    $sql = "UPDATE tbl_admin SET full_name = '$fullName', username = '$username' WHERE tbl_admin . id = '$id';";
 
+    mysqli_query($conn, $sql);
+
+    $_SESSION['update'] = 'success';
+    header('Location: ../admin/manage_admin.php');
+    exit();
 }

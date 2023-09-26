@@ -40,5 +40,21 @@ $admin = mysqli_fetch_assoc($admin);
 </div>
 
 <?php
+var_dump($_SESSION['update']);
+if (isset($_SESSION['update'])) {
+    if ($_SESSION['update'] === 'error_update') {
+        echo '<p class="error text__center">Admin not Available!</p>';
+        unset($_SESSION['update']);
+    } elseif ($_SESSION['update'] === 'stmtfailed') {
+        echo '<p class="error text__center">Failed to update admin!</p>';
+        unset($_SESSION['update']);
+    } elseif ($_SESSION['update'] === 'invalidname') {
+        echo '<p class="error text__center">Choose a proper full name!</p>';
+        unset($_SESSION['update']);
+    } elseif ($_SESSION['update'] === 'invalidusername') {
+        echo '<p class="error text__center">Choose a proper username!</p>';
+        unset($_SESSION['update']);
+    }
+}
 require_once 'partials/footer.php';
 ?>
