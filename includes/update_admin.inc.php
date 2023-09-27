@@ -1,5 +1,4 @@
 <?php
-// require_once 'dbh.inc.php';
 
 if (isset($_POST['submit'])) {
 
@@ -11,15 +10,10 @@ if (isset($_POST['submit'])) {
 
     if (invalidName($fullName) !== false) {
         $_SESSION['update'] = 'invalidname';
-        header('Location: ../admin/update_admin.php');
-        exit();
-    }
-
-    if (invalidUsername($username) !== false) {
+    } elseif (invalidUsername($username) !== false) {
         $_SESSION['update'] = 'invalidusername';
-        header('Location: ../admin/update_admin.php');
-        exit();
+    } else {
+        updateUser($conn, $id, $fullName, $username);
     }
 
-    // updateUser($conn, $id, $fullName, $username);
 }

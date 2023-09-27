@@ -69,7 +69,8 @@ table tr td {
     border-radius: 10px;
 }
 
-.btn__secondary:hover {
+.btn__secondary:hover,
+.btn__secondary__admin:hover {
     background-color: #3ca55d;
     transition: 0.5s;
 }
@@ -139,10 +140,11 @@ table tr td {
     border-radius: 10px;
 }
 
+/* CSS for Button Update Admin */
+.btn__secondary__admin,
 .btn__primary__admin {
     border: none;
-    background-color: #1e90ff;
-    padding: 1%;
+    padding: 1% 2%;
     color: white;
     text-decoration: none;
     display: inline-block;
@@ -150,6 +152,14 @@ table tr td {
     margin-bottom: 1%;
     font-weight: 600;
     border-radius: 10px;
+    margin: 2% 1%;
+    font-size: 0.9rem;
+}
+.btn__secondary__admin {
+    background-color: #48c670;
+}
+.btn__primary__admin {
+    background-color: #1e90ff;
 }
 
 .error__none {
@@ -161,7 +171,7 @@ table tr td {
 
 .error {
     padding: 2%;
-    background-color: #f8aeb9 ;
+    background-color: #f8aeb9;
     border-radius: 20px;
     margin-top: 3%;
 }

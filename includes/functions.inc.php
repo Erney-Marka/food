@@ -86,9 +86,25 @@ function createUser($conn, $fullName, $username, $pwd)
 
 // обновление пользователя
 function updateUser($conn, $id, $fullName, $username) {
-    $sql = "UPDATE tbl_admin SET full_name = '$fullName', username = '$username' WHERE tbl_admin . id = '$id';";
+    $sql = "UPDATE tbl_admin SET full_name = ?, username = ? WHERE id = ?;";
+    //"UPDATE tbl_admin SET full_name = '?', username = '?' WHERE tbl_admin . id = '$id';";
 
-    mysqli_query($conn, $sql);
+    $stmt = mysqli_stmt_init($conn);
+    // $stmt= $conn->prepare($sql);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['add'] = 'stmtfailed';
+        header('Location: ../admin/update_admin.php');
+        exit();
+    }
+
+    // $stmt->bind_param("ssi", $fullName, $username, $id);
+    // $stmt->execute();
+    mysqli_stmt_bind_param($stmt, 'ssi', $fullName, $username, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    // mysqli_query($conn, $sql);
 
     $_SESSION['update'] = 'success';
     header('Location: ../admin/manage_admin.php');
