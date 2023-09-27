@@ -27,8 +27,9 @@ $admins = mysqli_fetch_all($admins);
                     <td><?php echo $admin[0]; ?></td>
                     <td><?php echo $admin[1]; ?></td>
                     <td><?php echo $admin[2]; ?></td>
-                    <td>
+                    <td class="position">
                         <a href="update_admin.php?id=<?php echo $admin[0]; ?>" class="btn__secondary text__center">Update Admin</a>
+                        <a href="change_password.php?id=<?php echo $admin[0]; ?>" class="btn__primary text__center">Change Password</a>
                         <a href="delete_admin.php?id=<?php echo $admin[0]; ?>" class="btn__danger text__center">Delete Admin</a>
                     </td>
                 </tr>
@@ -38,6 +39,7 @@ $admins = mysqli_fetch_all($admins);
         <div class="clearfix"></div>
 
         <?php
+        // var_dump($_SESSION['add']);
         if (isset($_SESSION['add']) == 'success') {
             echo '<p class="error__none text__center">Admin Added Successfully!</p>';
             unset($_SESSION['add']);
@@ -54,10 +56,19 @@ $admins = mysqli_fetch_all($admins);
             }
         }
 
+        // var_dump($_SESSION['update']);
         if (isset($_SESSION['update'])) {
             if ($_SESSION['update'] === 'success') {
                 echo '<p class="error__none text__center">Data changed successfully!</p>';
                 unset($_SESSION['update']);
+            }
+        }
+
+        // var_dump($_SESSION['change']);
+        if (isset($_SESSION['change'])) {
+            if ($_SESSION['change'] === 'success') {
+                echo '<p class="error__none text__center">Password changed successfully!</p>';
+                unset($_SESSION['change']);
             }
         }
         ?>

@@ -1,7 +1,9 @@
 <?php
+require_once 'dbh.inc.php';
 
 // проверка заполнения полей
-function emptyInputSignup ($fullName, $username, $pwd) {
+function emptyInputSignup($fullName, $username, $pwd)
+{
     if (empty($fullName) || empty($username) || empty($pwd)) {
         $result = true;
     } else {
@@ -12,7 +14,8 @@ function emptyInputSignup ($fullName, $username, $pwd) {
 }
 
 // проверка на существование имени и логина пользователя
-function nameExists($conn, $fullName, $username) {
+function nameExists($conn, $fullName, $username)
+{
     $sql = "SELECT * FROM tbl_admin WHERE full_name = ? OR username = ?;";
     $stmt = mysqli_stmt_init($conn);
 
@@ -27,7 +30,7 @@ function nameExists($conn, $fullName, $username) {
 
     $resultData = mysqli_stmt_get_result($stmt);
 
-    if ($row = mysqli_fetch_assoc($resultData)) { 
+    if ($row = mysqli_fetch_assoc($resultData)) {
         return $row;
     } else {
         $result = false;
@@ -36,7 +39,8 @@ function nameExists($conn, $fullName, $username) {
 }
 
 // проверка значений переданных как полное имя
-function invalidName($fullName) {
+function invalidName($fullName)
+{
     $result = "";
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $fullName)) {
@@ -48,7 +52,8 @@ function invalidName($fullName) {
     return $result;
 }
 // проверка значений переданных как username
-function invalidUsername($username) {
+function invalidUsername($username)
+{
     $result = "";
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
@@ -85,7 +90,8 @@ function createUser($conn, $fullName, $username, $pwd)
 }
 
 // обновление пользователя
-function updateUser($conn, $id, $fullName, $username) {
+function updateUser($conn, $id, $fullName, $username)
+{
     $sql = "UPDATE tbl_admin SET full_name = ?, username = ? WHERE id = ?;";
     //"UPDATE tbl_admin SET full_name = '?', username = '?' WHERE tbl_admin . id = '$id';";
 
@@ -107,6 +113,46 @@ function updateUser($conn, $id, $fullName, $username) {
     // mysqli_query($conn, $sql);
 
     $_SESSION['update'] = 'success';
+    header('Location: ../admin/manage_admin.php');
+    exit();
+}
+
+// проверка совпадения старого и нового паролей
+function pwdVerification($conn, $id, $pwd)
+{
+    // ПОКА НЕ МОГУ ПОНЯТЬ КАК СДЕЛАТЬ
+}
+
+// пароль и подтверждение пароля совпадают
+function pwdMatch($pwdNew, $pwdRepeat)
+{
+    if ($pwdNew !== $pwdRepeat) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// изменение пароля
+function changePassword($conn, $id, $pwdNew)
+{
+    $sql = "UPDATE tbl_admin SET pwd = ? WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['add'] = 'stmtfailed';
+        header('Location: ../admin/change_password.php');
+        exit();
+    }
+
+    $options = ['cost' => 12];
+    $hashedPwd = password_hash($pwdNew, PASSWORD_BCRYPT, $options);
+
+    mysqli_stmt_bind_param($stmt, 'si', $hashedPwd, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['change'] = 'success';
     header('Location: ../admin/manage_admin.php');
     exit();
 }
