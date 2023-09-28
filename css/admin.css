@@ -39,7 +39,9 @@ table tr td {
 
 
 /* CSS for Table */
-.btn__primary, .btn__secondary, .btn__danger {
+.btn__primary,
+.btn__secondary,
+.btn__danger {
     padding: 1% 2%;
     color: white;
     text-decoration: none;
@@ -52,9 +54,11 @@ table tr td {
 .btn__primary {
     background-color: #1e90ff;
 }
+
 .btn__secondary {
     background-color: #48c670;
 }
+
 .btn__danger {
     background-color: #ff6b81;
 }
@@ -64,11 +68,14 @@ table tr td {
     background-color: #3742fa;
     transition: 0.5s;
 }
+
 .btn__secondary:hover,
-.btn__secondary__admin:hover {
+.btn__secondary__admin:hover,
+.btn__secondary__login:hover {
     background-color: #3ca55d;
     transition: 0.5s;
 }
+
 .btn__danger:hover {
     background-color: #ff4757;
     transition: 0.5s;
@@ -126,6 +133,7 @@ table tr td {
     margin: 1%;
     border-radius: 10px;
 }
+
 .form {
     display: flex;
     justify-content: center;
@@ -148,25 +156,30 @@ table tr td {
     margin: 2% 1%;
     font-size: 0.9rem;
 }
-.btn__secondary__admin {
+
+.btn__secondary__admin,
+.btn__secondary__login {
     background-color: #48c670;
 }
+
 .btn__primary__admin {
     background-color: #1e90ff;
 }
 
-.error__none {
-    padding: 2%;
-    background-color: #b9eeca;
+.error__none,
+.error {
+    padding: 1% 5%;
     border-radius: 20px;
-    margin-top: 3%;
+    margin: 3% auto;
+    width: 50%;
+}
+
+.error__none {
+    background-color: #b9eeca;
 }
 
 .error {
-    padding: 2%;
     background-color: #f8aeb9;
-    border-radius: 20px;
-    margin-top: 3%;
 }
 
 
@@ -178,4 +191,38 @@ table tr td {
     right: 0;
     color: white;
     background-color: #ff6b81;
+}
+
+/* CSS for Login */
+.login {
+    border: solid 1px grey;
+    border-radius: 10px;
+    width: 50%;
+    margin: 10% auto;
+    padding: 2%;
+}
+
+.form__login {
+    margin: 2% auto;
+}
+
+.input_login {
+    padding: 2%;
+    margin-left: 2%;
+}
+
+.btn__secondary__login {
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    display: block;
+    padding: 2% 5%;
+    margin: 5% auto;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+.login p {
+    font-size: small;
 }

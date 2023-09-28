@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     // Получить данные из формы
     $fullName = $_POST['full_name'];
     $username = $_POST['username'];
-    $pwd = $_POST['pwd'];
+    $pwd = md5($_POST['pwd']);
 
     // включить файл функций
     require_once 'functions.inc.php';

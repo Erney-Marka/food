@@ -26,10 +26,10 @@ $admin = mysqli_fetch_assoc($admin);
 
         <form action="" method="post" class="text__center">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <!-- <div class="form">
+            <div class="form">
                 <label for="" class="label_admin">Сurrent Password: </label>
                 <input type="password" name="pwd" class="input_admin" placeholder="Enter the current password...">
-            </div> -->
+            </div>
             <div class="form">
                 <label for="" class="label_admin">New Password: </label>
                 <input type="password" name="pwd_new" class="input_admin" placeholder="Enter a new password...">
@@ -57,7 +57,7 @@ if (isset($_SESSION['change'])) {
 }
 
 
-// $2y$12$EirUaIctTmdXv0DVbX1WQugZJVbakErbroqzbu0ju.MROfa2AHjMK
-// 
+// e10adc3949ba59abbe56e057f20f883e - 123456
+// 81dc9bdb52d04dc20036dbd8313ed055 - 1234
 require_once 'partials/footer.php';
 ?>

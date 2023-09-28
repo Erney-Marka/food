@@ -3,9 +3,9 @@
 if (isset($_POST['submit'])) {
 
     $id = $_POST['id'];
-    // $pwd = $_POST['pwd'];
-    $pwdNew = $_POST['pwd_new'];
-    $pwdRepeat = $_POST['pwd_repeat'];
+    $pwd = md5($_POST['pwd']);
+    $pwdNew = md5($_POST['pwd_new']);
+    $pwdRepeat = md5($_POST['pwd_repeat']);
 
 
     require_once 'functions.inc.php';
@@ -13,9 +13,13 @@ if (isset($_POST['submit'])) {
     
     if (pwdMatch($pwdNew, $pwdRepeat) !== false) {
         $_SESSION['change'] = 'passwordsdontmatch';
-    } else {
+    } 
+    elseif (pwdVerification($conn, $id, $pwd) !== true) {
+        $_SESSION['change'] = 'wrongpassword';
+    } 
+    else {
         changePassword($conn, $id, $pwdNew);
     }
 
-    // pwdVerification($conn, $id, $pwd, $username);
+    // pwdVerification($conn, $id, $pwd);
 }

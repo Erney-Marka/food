@@ -77,10 +77,10 @@ function createUser($conn, $fullName, $username, $pwd)
         exit();
     }
 
-    $options = ['cost' => 12];
-    $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
+    // $options = ['cost' => 12];
+    // $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
 
-    mysqli_stmt_bind_param($stmt, 'sss', $fullName, $username, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, 'sss', $fullName, $username, $pwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -120,7 +120,18 @@ function updateUser($conn, $id, $fullName, $username)
 // проверка совпадения старого и нового паролей
 function pwdVerification($conn, $id, $pwd)
 {
-    // ПОКА НЕ МОГУ ПОНЯТЬ КАК СДЕЛАТЬ
+    $sql = "SELECT * FROM tbl_admin WHERE id = $id AND pwd = '$pwd';";
+    $res = mysqli_query($conn, $sql);
+
+    if ($res == true) {
+        $count = mysqli_num_rows($res);
+
+        if ($count == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 // пароль и подтверждение пароля совпадают
@@ -145,10 +156,10 @@ function changePassword($conn, $id, $pwdNew)
         exit();
     }
 
-    $options = ['cost' => 12];
-    $hashedPwd = password_hash($pwdNew, PASSWORD_BCRYPT, $options);
+    // $options = ['cost' => 12];
+    // $hashedPwd = password_hash($pwdNew, PASSWORD_BCRYPT, $options);
 
-    mysqli_stmt_bind_param($stmt, 'si', $hashedPwd, $id);
+    mysqli_stmt_bind_param($stmt, 'si', $pwdNew, $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -156,3 +167,45 @@ function changePassword($conn, $id, $pwdNew)
     header('Location: ../admin/manage_admin.php');
     exit();
 }
+
+// проверка существования пользователя
+function userExists($conn, $username, $pwd) {
+    $sql = "SELECT * FROM tbl_admin WHERE username = ? AND pwd = ?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['add'] = 'stmtfailed';
+        header('Location: ../admin/login.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ss', $username, $pwd); 
+    mysqli_stmt_execute($stmt); 
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) { 
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+
+}
+// авторизация пользователя
+// function loginUser($conn, $username, $pwd) {
+//     $userExists = userExists($conn, $username, $pwd);
+
+//     if ($userExists === true) {
+//         // session_start();
+//         // $_SESSION['userid'] = $userExists['userId'];
+//         // $_SESSION['useruid'] = $userExists['userUid'];
+//         $_SESSION['login'] = 'success';
+//         header('Location: ../admin/');
+//         exit();
+//     } else {
+//         $_SESSION['login'] = 'authorizationerror';
+//     }
+// }
