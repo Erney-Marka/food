@@ -1,6 +1,7 @@
 <?php
 require_once 'dbh.inc.php';
 
+// РЕГИСТРАЦИЯ
 // проверка заполнения полей
 function emptyInputSignup($fullName, $username, $pwd)
 {
@@ -12,7 +13,6 @@ function emptyInputSignup($fullName, $username, $pwd)
 
     return $result;
 }
-
 // проверка на существование имени и логина пользователя
 function nameExists($conn, $fullName, $username)
 {
@@ -37,7 +37,6 @@ function nameExists($conn, $fullName, $username)
         return $result;
     }
 }
-
 // проверка значений переданных как полное имя
 function invalidName($fullName)
 {
@@ -64,7 +63,6 @@ function invalidUsername($username)
 
     return $result;
 }
-
 // создание пользователя
 function createUser($conn, $fullName, $username, $pwd)
 {
@@ -89,7 +87,7 @@ function createUser($conn, $fullName, $username, $pwd)
     exit();
 }
 
-// обновление пользователя
+// ОБНОВЛЕНИЕ ЛОГИНА И ИМЕНИ ПОЛЬЗОВАТЕЛЯ
 function updateUser($conn, $id, $fullName, $username)
 {
     $sql = "UPDATE tbl_admin SET full_name = ?, username = ? WHERE id = ?;";
@@ -117,6 +115,7 @@ function updateUser($conn, $id, $fullName, $username)
     exit();
 }
 
+// ИЗМЕНЕНИЕ ПАРОЛЯ
 // проверка совпадения старого и нового паролей
 function pwdVerification($conn, $id, $pwd)
 {
@@ -133,7 +132,6 @@ function pwdVerification($conn, $id, $pwd)
         }
     }
 }
-
 // пароль и подтверждение пароля совпадают
 function pwdMatch($pwdNew, $pwdRepeat)
 {
@@ -143,7 +141,6 @@ function pwdMatch($pwdNew, $pwdRepeat)
         return false;
     }
 }
-
 // изменение пароля
 function changePassword($conn, $id, $pwdNew)
 {
@@ -168,6 +165,7 @@ function changePassword($conn, $id, $pwdNew)
     exit();
 }
 
+// АВТОРИЗАЦИЯ
 // проверка существования пользователя
 function userExists($conn, $username, $pwd) {
     $sql = "SELECT * FROM tbl_admin WHERE username = ? AND pwd = ?";
@@ -192,20 +190,36 @@ function userExists($conn, $username, $pwd) {
     }
 
     mysqli_stmt_close($stmt);
-
 }
-// авторизация пользователя
-// function loginUser($conn, $username, $pwd) {
-//     $userExists = userExists($conn, $username, $pwd);
 
-//     if ($userExists === true) {
-//         // session_start();
-//         // $_SESSION['userid'] = $userExists['userId'];
-//         // $_SESSION['useruid'] = $userExists['userUid'];
-//         $_SESSION['login'] = 'success';
-//         header('Location: ../admin/');
-//         exit();
-//     } else {
-//         $_SESSION['login'] = 'authorizationerror';
-//     }
-// }
+// СОЗДАНИЕ КАТЕГОРИЙ
+// проверка заполнения полей
+function emptyInputCategory($title, $imageName, $featured, $active)
+{
+    if (empty($title) || empty($imageName) || empty($featured) || empty($active)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}
+// создание категории
+function createCategory($conn, $title, $imageName, $featured, $active) {
+    $sql = "INSERT INTO `tbl_category` (title, image_name, featured, active) VALUES (?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['addCategory'] = 'stmtfailed';
+        header('Location: ../admin/add_category');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ssss', $title, $imageName, $featured, $active);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['addCategory'] = 'success';
+    header('Location: ../admin/manage_category.php');
+    exit();
+}

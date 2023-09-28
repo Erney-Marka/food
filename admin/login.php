@@ -18,21 +18,21 @@ if (!isset($_SESSION['autoriz'])) {
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="login">
+    <div class="main_content">
+        <div class="wrapper login">
             <h1 class="text__center">Login</h1>
 
             <!-- Login Form -->
-            <form action="" method="post">
-                <div class="form form__login">
-                    <label for="" class="label_admin">Username: </label>
-                    <input type="text" name="username" class="input_admin input_login" placeholder="Enter Your Username...">
+            <form action="" method="post" class="form text__center">
+                <div class="form">
+                    <label for="" class="label">Username: </label>
+                    <input type="text" name="username" class="input" placeholder="Enter Your Username...">
                 </div>
-                <div class="form form__login">
-                    <label for="" class="label_admin">Password: </label>
-                    <input type="password" name="pwd" class="input_admin input_login" placeholder="Enter Your Password...">
+                <div class="form">
+                    <label for="" class="label">Password: </label>
+                    <input type="password" name="pwd" class="input" placeholder="Enter Your Password...">
                 </div>
-                <button type="submit" name="submit" class="btn__secondary__login">Login</button>
+                <button type="submit" name="submit" class="btn btn__secondary btn_center">Login</button>
             </form>
 
             <p class="text__center">Created By - <a href="#">Anna</a></p>

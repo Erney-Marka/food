@@ -5,7 +5,7 @@
     <div class="wrapper">
         <h1 class="text__center">Manage Food</h1>
         <!-- Button to add Food -->
-        <a href="#" class="btn__primary text__center">Add Food</a>
+        <a href="#" class="btn btn__primary text__center">Add Food</a>
 
         <!-- Table Food Start -->
         <table class="tbl__full">
@@ -20,8 +20,8 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="#" class="btn__secondary text__center">Update Food</a>
-                    <a href="#" class="btn__danger text__center">Delete Food</a>
+                    <a href="#" class="btn btn__secondary text__center">Update Food</a>
+                    <a href="#" class="btn btn__danger text__center">Delete Food</a>
                 </td>
             </tr>
             <tr>
@@ -29,8 +29,8 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="#" class="btn__secondary text__center">Update Food</a>
-                    <a href="#" class="btn__danger text__center">Delete Food</a>
+                    <a href="#" class="btn btn__secondary text__center">Update Food</a>
+                    <a href="#" class="btn btn__danger text__center">Delete Food</a>
                 </td>
             </tr>
         </table>

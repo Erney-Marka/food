@@ -24,22 +24,22 @@ $admin = mysqli_fetch_assoc($admin);
     <div class="wrapper">
         <h1 class="text__center">Change Password</h1>
 
-        <form action="" method="post" class="text__center">
+        <form action="" method="post" class="form text__center">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <div class="form">
-                <label for="" class="label_admin">Сurrent Password: </label>
-                <input type="password" name="pwd" class="input_admin" placeholder="Enter the current password...">
+            <div class="form__row">
+                <label for="" class="label">Сurrent Password: </label>
+                <input type="password" name="pwd" class="input" placeholder="Enter the current password...">
             </div>
-            <div class="form">
-                <label for="" class="label_admin">New Password: </label>
-                <input type="password" name="pwd_new" class="input_admin" placeholder="Enter a new password...">
+            <div class="form__row">
+                <label for="" class="label">New Password: </label>
+                <input type="password" name="pwd_new" class="input" placeholder="Enter a new password...">
             </div>
-            <div class="form">
-                <label for="" class="label_admin">Repeat Password: </label>
-                <input type="password" name="pwd_repeat" class="input_admin" placeholder="Repeat a new password...">
+            <div class="form__row">
+                <label for="" class="label">Repeat Password: </label>
+                <input type="password" name="pwd_repeat" class="input" placeholder="Repeat a new password...">
             </div>
-            <button type="submit" name="submit" class="btn__secondary__admin">Update</button>
-            <a href="update_admin.php" class="btn__primary__admin">Return</a>
+            <button type="submit" name="submit" class="btn btn__secondary">Update</button>
+            <a href="update_admin.php" class="btn btn__primary">Return</a>
         </form>
     </div>
 </div>
@@ -56,8 +56,5 @@ if (isset($_SESSION['change'])) {
     }
 }
 
-
-// e10adc3949ba59abbe56e057f20f883e - 123456
-// 81dc9bdb52d04dc20036dbd8313ed055 - 1234
 require_once 'partials/footer.php';
 ?>

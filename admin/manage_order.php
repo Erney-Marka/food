@@ -18,8 +18,8 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="#" class="btn__secondary text__center">Update Order</a>
-                    <a href="#" class="btn__danger text__center">Delete Order</a>
+                    <a href="#" class="btn btn__secondary text__center">Update Order</a>
+                    <a href="#" class="btn btn__danger text__center">Delete Order</a>
                 </td>
             </tr>
             <tr>
@@ -27,8 +27,8 @@
                 <td>Anna</td>
                 <td>AnnaUsr</td>
                 <td>
-                    <a href="#" class="btn__secondary text__center">Update Order</a>
-                    <a href="#" class="btn__danger text__center">Delete Order</a>
+                    <a href="#" class="btn btn__secondary text__center">Update Order</a>
+                    <a href="#" class="btn btn__danger text__center">Delete Order</a>
                 </td>
             </tr>
         </table>

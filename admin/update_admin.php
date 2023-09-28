@@ -24,18 +24,18 @@ $admin = mysqli_fetch_assoc($admin);
     <div class="wrapper">
         <h1 class="text__center">Update Admin</h1>
 
-        <form action="" method="post" class="text__center">
+        <form action="" method="post" class="form text__center">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <div class="form">
-                <label for="" class="label_admin">Full Name: </label>
-                <input type="text" name="full_name" class="input_admin" value="<?php echo $admin['full_name']; ?>">
+            <div class="form__row">
+                <label for="" class="label">Full Name: </label>
+                <input type="text" name="full_name" class="input" value="<?php echo $admin['full_name']; ?>">
             </div>
-            <div class="form">
-                <label for="" class="label_admin">Username: </label>
-                <input type="text" name="username" class="input_admin" value="<?php echo $admin['username']; ?>">
+            <div class="form__row">
+                <label for="" class="label">Username: </label>
+                <input type="text" name="username" class="input" value="<?php echo $admin['username']; ?>">
             </div>
-            <button type="submit" name="submit" class="btn__secondary__admin">Update</button>
-            <a href="update_admin.php" class="btn__primary__admin">Return</a>
+            <button type="submit" name="submit" class="btn btn__secondary">Update</button>
+            <a href="update_admin.php" class="btn btn__primary">Return</a>
         </form>
     </div>
 </div>

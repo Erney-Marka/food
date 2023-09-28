@@ -1,38 +1,39 @@
-<?php require_once 'partials/menu.php'; ?>
+<?php 
+require_once 'partials/menu.php'; 
+$categories = mysqli_query($conn, 'SELECT * FROM tbl_category');
+$categories = mysqli_fetch_all($categories);
+?>
 
 <!-- Main Content Section Start -->
 <div class="main__content">
     <div class="wrapper">
         <h1 class="text__center">Manage Category</h1>
         <!-- Button to add Category -->
-        <a href="#" class="btn__primary text__center">Add Category</a>
+        <a href="add_category.php" class="btn btn__primary text__center">Add Category</a>
 
         <!-- Table Category Start -->
         <table class="tbl__full">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
                 <th>Action</th>
             </tr>
+            <?php foreach ($categories as $category) { ?>
             <tr>
-                <td>1.</td>
-                <td>Anna</td>
-                <td>AnnaUsr</td>
+                <td><?php echo $category[0]; ?></td>
+                <td><?php echo $category[1]; ?></td>
+                <td><?php echo $category[2]; ?></td>
+                <td><?php echo $category[3]; ?></td>
+                <td><?php echo $category[4]; ?></td>
                 <td>
-                    <a href="#" class="btn__secondary text__center">Update Category</a>
-                    <a href="#" class="btn__danger text__center">Delete Category</a>
+                    <a href="#" class="btn btn__secondary text__center">Update Category</a>
+                    <a href="#" class="btn btn__danger text__center">Delete Category</a>
                 </td>
             </tr>
-            <tr>
-                <td>2.</td>
-                <td>Anna</td>
-                <td>AnnaUsr</td>
-                <td>
-                    <a href="#" class="btn__secondary text__center">Update Category</a>
-                    <a href="#" class="btn__danger text__center">Delete Category</a>
-                </td>
-            </tr>
+            <?php } ?>            
         </table>
         <!-- Table Category End -->
 

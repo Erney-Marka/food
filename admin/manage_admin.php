@@ -11,7 +11,7 @@ $admins = mysqli_fetch_all($admins);
         <h1 class="text__center">Manage Admin</h1>
 
         <!-- Button to add Admin -->
-        <a href="add_admin.php" class="btn__primary text__center">Add Admin</a>
+        <a href="add_admin.php" class="btn btn__primary text__center">Add Admin</a>
 
         <!-- Table Admin Start -->
         <table class="tbl__full">
@@ -28,9 +28,9 @@ $admins = mysqli_fetch_all($admins);
                     <td><?php echo $admin[1]; ?></td>
                     <td><?php echo $admin[2]; ?></td>
                     <td class="position">
-                        <a href="update_admin.php?id=<?php echo $admin[0]; ?>" class="btn__secondary text__center">Update Admin</a>
-                        <a href="change_password.php?id=<?php echo $admin[0]; ?>" class="btn__primary text__center">Change Password</a>
-                        <a href="delete_admin.php?id=<?php echo $admin[0]; ?>" class="btn__danger text__center">Delete Admin</a>
+                        <a href="update_admin.php?id=<?php echo $admin[0]; ?>" class="btn btn__secondary text__center">Update Admin</a>
+                        <a href="change_password.php?id=<?php echo $admin[0]; ?>" class="btn btn__primary text__center">Change Password</a>
+                        <a href="delete_admin.php?id=<?php echo $admin[0]; ?>" class="btn btn__danger text__center">Delete Admin</a>
                     </td>
                 </tr>
             <?php } ?>
