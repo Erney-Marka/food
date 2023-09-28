@@ -9,8 +9,10 @@ if (isset($_POST['submit'])) {
     // включить файл функций
     require_once 'functions.inc.php';
 
+    // проверить если пользователь сущесвует - авторизоваться
     if (userExists($conn, $username, $pwd) !== false) {
         $_SESSION['login'] = 'success';
+        $_SESSION['autoriz'] = 'success';
         header('Location: ../admin/');
         exit();
     } else {

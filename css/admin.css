@@ -197,17 +197,17 @@ table tr td {
 .login {
     border: solid 1px grey;
     border-radius: 10px;
-    width: 50%;
-    margin: 10% auto;
+    width: 70%;
+    margin: 5% auto;
     padding: 2%;
 }
 
 .form__login {
-    margin: 2% auto;
+    margin: 1% auto;
 }
 
 .input_login {
-    padding: 2%;
+    padding: 1%;
     margin-left: 2%;
 }
 
@@ -216,7 +216,7 @@ table tr td {
     border-radius: 10px;
     font-size: 0.9rem;
     display: block;
-    padding: 2% 5%;
+    padding: 1% 5%;
     margin: 5% auto;
     border: none;
     color: white;

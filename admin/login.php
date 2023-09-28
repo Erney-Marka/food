@@ -1,8 +1,11 @@
 <?php
 session_start();
 require_once '../includes/login.inc.php';
-?>
 
+if (!isset($_SESSION['autoriz'])) {
+    echo '<p class="error text__center">You are not logged in. Log in.</p>';
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

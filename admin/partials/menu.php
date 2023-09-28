@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require_once '../includes/dbh.inc.php'; 
+require_once '../includes/dbh.inc.php';
+require_once 'login_check.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +24,9 @@ require_once '../includes/dbh.inc.php';
                 <li><a href="../admin/manage_category.php">Category</a></li>
                 <li><a href="../admin/manage_food.php">Food</a></li>
                 <li><a href="../admin/manage_order.php">Order</a></li>
+                <li><a href="../admin/logout.php">Logout</a></li>
+
+                
             </ul>
         </div>
     </div>
