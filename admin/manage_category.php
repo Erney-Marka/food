@@ -29,15 +29,33 @@ $categories = mysqli_fetch_all($categories);
                 <td><?php echo $category[3]; ?></td>
                 <td><?php echo $category[4]; ?></td>
                 <td>
-                    <a href="#" class="btn btn__secondary text__center">Update Category</a>
-                    <a href="#" class="btn btn__danger text__center">Delete Category</a>
+                    <a href="update_category.php?id=<?php echo $category[0]; ?>" class="btn btn__secondary text__center">Update Category</a>
+                    <a href="delete_category.php?id=<?php echo $category[0]; ?>" class="btn btn__danger text__center">Delete Category</a>
                 </td>
             </tr>
             <?php } ?>            
         </table>
         <!-- Table Category End -->
 
+        <?php
+        if (isset($_SESSION['addCategory'])) {
+            if ($_SESSION['addCategory'] === 'success') {
+                echo '<p class="error__none text__center">Category Added Successfully!</p>';
+                unset($_SESSION['addCategory']);
+            } 
+        }
 
+        if (isset($_SESSION['delete'])) {
+            if ($_SESSION['delete'] === 'delete') {
+                echo '<p class="error__none text__center">Category Successfully Removed!</p>';
+                unset($_SESSION['delete']);
+            } elseif ($_SESSION['delete'] === 'error_delete') {
+                echo '<p class="error text__center">A deletion error occurred!</p>';
+                unset($_SESSION['delete']);
+            }
+        }
+        ?>
+    
         <div class="clearfix"></div>
     </div>
 </div>
