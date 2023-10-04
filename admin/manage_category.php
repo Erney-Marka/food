@@ -1,7 +1,14 @@
 <?php 
 require_once 'partials/menu.php'; 
 $categories = mysqli_query($conn, 'SELECT * FROM tbl_category');
-$categories = mysqli_fetch_all($categories);
+
+$count = mysqli_num_rows($categories);
+if ($count > 0) {
+    $categories = mysqli_fetch_all($categories);
+} else {
+    $_SESSION['data'] = 'failed';
+}
+
 ?>
 
 <!-- Main Content Section Start -->
@@ -25,12 +32,26 @@ $categories = mysqli_fetch_all($categories);
             <tr>
                 <td><?php echo $category[0]; ?></td>
                 <td><?php echo $category[1]; ?></td>
-                <td><?php echo $category[2]; ?></td>
+                <td>
+                    <?php 
+                    // echo $category[2]; 
+                    if ($category[2] != 'none') {
+
+                        ?>
+                        <img src="../images/categories/<?php echo $category[2]; ?>" class="img__category">
+                        <?php
+                    } else {
+                        echo '<p class="error text__center">Image not added.</p>';
+                    }
+
+                    
+                    ?>
+                </td>
                 <td><?php echo $category[3]; ?></td>
                 <td><?php echo $category[4]; ?></td>
                 <td>
                     <a href="update_category.php?id=<?php echo $category[0]; ?>" class="btn btn__secondary text__center">Update Category</a>
-                    <a href="delete_category.php?id=<?php echo $category[0]; ?>" class="btn btn__danger text__center">Delete Category</a>
+                    <a href="delete_category.php?id=<?php echo $category[0]; ?>&image_name=<?php echo $category[2]; ?>" class="btn btn__danger text__center">Delete Category</a>
                 </td>
             </tr>
             <?php } ?>            
@@ -53,6 +74,20 @@ $categories = mysqli_fetch_all($categories);
                 echo '<p class="error text__center">A deletion error occurred!</p>';
                 unset($_SESSION['delete']);
             }
+        }
+
+        if (isset($_SESSION['deleteImage'])) {
+            if ($_SESSION['deleteImage'] === 'error_delete') {
+                echo '<p class="error text__center">An error occurred deleting the image!</p>';
+                unset($_SESSION['deleteImage']);
+            } 
+        }
+
+        if (isset($_SESSION['data'])) {
+            if ($_SESSION['data'] === 'failed') {
+                echo '<p class="error text__center">No category added!</p>';
+                unset($_SESSION['data']);
+            } 
         }
         ?>
     

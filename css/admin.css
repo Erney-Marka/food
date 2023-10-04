@@ -172,3 +172,11 @@ table tr td {
 .login p {
     font-size: small;
 }
+
+/* CSS for Category */
+.img__category {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
