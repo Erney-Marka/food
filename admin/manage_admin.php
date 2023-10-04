@@ -61,6 +61,9 @@ $admins = mysqli_fetch_all($admins);
             if ($_SESSION['update'] === 'success') {
                 echo '<p class="error__none text__center">Data changed successfully!</p>';
                 unset($_SESSION['update']);
+            } elseif ($_SESSION['update'] === 'error_update') {
+                echo '<p class="error text__center">Admin not Available!</p>';
+                unset($_SESSION['update']);
             }
         }
 

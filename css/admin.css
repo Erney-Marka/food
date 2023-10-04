@@ -10,9 +10,19 @@
     width: 80%;
     margin: 0 auto;
 }
+
 .text__center {
     text-align: center;
 }
+
+.text_title {
+    font-weight: 600;
+}
+
+.text_category {
+    margin-top: 3%;
+}
+
 .clearfix {
     float: none;
     clear: both;
@@ -23,12 +33,14 @@
 .tbl__full {
     width: 100%;
 }
+
 table tr th {
     border-bottom: 1px solid black;
     padding: 1%;
     padding-top: 2%;
     text-align: center;
 }
+
 table tr td {
     padding: 1%;
 }
@@ -46,32 +58,40 @@ table tr td {
     margin: 1% 1%;
     font-size: 0.9rem;
 }
+
 .btn__primary {
     background-color: #1e90ff;
 }
+
 .btn__secondary {
     background-color: #48c670;
 }
+
 .btn__danger {
     background-color: #ff6b81;
 }
+
 .btn__primary:hover {
     background-color: #3742fa;
     transition: 0.5s;
 }
+
 .btn__secondary:hover {
     background-color: #3ca55d;
     transition: 0.5s;
 }
+
 .btn__danger:hover {
     background-color: #ff4757;
     transition: 0.5s;
 }
+
 .position {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
 }
+
 .btn_center {
     display: block;
     margin: 2% auto;
@@ -82,18 +102,22 @@ table tr td {
 .menu {
     border-bottom: 1px solid gray;
 }
+
 .menu ul {
     list-style: none;
 }
+
 .menu ul li {
     display: inline;
     padding: 1%;
 }
+
 .menu ul li a {
     text-decoration: none;
     font-weight: bold;
     color: #ff6b81;
 }
+
 .menu ul li a:hover {
     color: #ff4757;
     transition: 0.5s;
@@ -105,6 +129,7 @@ table tr td {
     background-color: #f1f2f6;
     padding: 3% 0;
 }
+
 .col-4 {
     width: 18%;
     background-color: white;
@@ -118,17 +143,31 @@ table tr td {
 .form {
     margin-top: 2%;
 }
+
 .form__row {
     margin-top: 2%;
 }
+
 .label {
     display: block;
 }
+
+.lable_category {
+    margin-top: 2%;
+}
+
 .input {
     border-radius: 10px;
     padding: 0.7% 10%;
     margin: 1%;
 }
+
+.input_center {
+    display: block;
+    margin: 1% auto;
+    text-align: center;
+}
+
 .form .btn {
     margin-top: 3%;
 }
@@ -143,9 +182,11 @@ table tr td {
     margin: 3% auto;
     width: 50%;
 }
+
 .error__none {
     background-color: #b9eeca;
 }
+
 .error {
     background-color: #f8aeb9;
 }
@@ -153,7 +194,6 @@ table tr td {
 
 /* CSS for footer */
 .footer {
-    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -169,14 +209,24 @@ table tr td {
     margin: 5% auto;
     padding: 2%;
 }
+
 .login p {
     font-size: small;
 }
 
-/* CSS for Category */
-.img__category {
-    max-width: 150px;
+/* CSS for Category IMG*/
+.img__category, .no_img {
     display: block;
     margin: 0 auto;
     border-radius: 10px;
+}
+.img__category {
+    max-width: 150px;
+    margin-top: 1%;
+    margin-bottom: -1%;
+}
+.no_img {
+    max-width: 30%;
+    background-color: #f9cdd3;
+    padding: 0.5%;
 }

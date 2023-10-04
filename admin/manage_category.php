@@ -9,6 +9,47 @@ if ($count > 0) {
     $_SESSION['data'] = 'failed';
 }
 
+
+// обработка сообщений
+if (isset($_SESSION['addCategory'])) {
+    if ($_SESSION['addCategory'] === 'success') {
+        echo '<p class="error__none text__center">Category Added Successfully!</p>';
+        unset($_SESSION['addCategory']);
+    } 
+}
+if (isset($_SESSION['delete'])) {
+    if ($_SESSION['delete'] === 'delete') {
+        echo '<p class="error__none text__center">Category Successfully Removed!</p>';
+        unset($_SESSION['delete']);
+    } elseif ($_SESSION['delete'] === 'error_delete') {
+        echo '<p class="error text__center">A deletion error occurred!</p>';
+        unset($_SESSION['delete']);
+    }
+}
+if (isset($_SESSION['deleteImage'])) {
+    if ($_SESSION['deleteImage'] === 'error_delete') {
+        echo '<p class="error text__center">An error occurred deleting the image!</p>';
+        unset($_SESSION['deleteImage']);
+    } 
+}
+if (isset($_SESSION['data'])) {
+    if ($_SESSION['data'] === 'failed') {
+        echo '<p class="error text__center">No category added!</p>';
+        unset($_SESSION['data']);
+    } 
+}
+if (isset($_SESSION['update'])) {
+    if ($_SESSION['update'] === 'success') {
+        echo '<p class="error__none text__center">Data changed successfully!</p>';
+        unset($_SESSION['update']);
+    } elseif ($_SESSION['update'] === 'error_update') {
+        echo '<p class="error text__center">Category not Available!</p>';
+        unset($_SESSION['update']);
+    } elseif ($_SESSION['update'] === 'stmtfailed') {
+        echo '<p class="error text__center">Oops, something went wrong!</p>';
+        unset($_SESSION['update']);
+    } 
+}
 ?>
 
 <!-- Main Content Section Start -->
@@ -57,39 +98,6 @@ if ($count > 0) {
             <?php } ?>            
         </table>
         <!-- Table Category End -->
-
-        <?php
-        if (isset($_SESSION['addCategory'])) {
-            if ($_SESSION['addCategory'] === 'success') {
-                echo '<p class="error__none text__center">Category Added Successfully!</p>';
-                unset($_SESSION['addCategory']);
-            } 
-        }
-
-        if (isset($_SESSION['delete'])) {
-            if ($_SESSION['delete'] === 'delete') {
-                echo '<p class="error__none text__center">Category Successfully Removed!</p>';
-                unset($_SESSION['delete']);
-            } elseif ($_SESSION['delete'] === 'error_delete') {
-                echo '<p class="error text__center">A deletion error occurred!</p>';
-                unset($_SESSION['delete']);
-            }
-        }
-
-        if (isset($_SESSION['deleteImage'])) {
-            if ($_SESSION['deleteImage'] === 'error_delete') {
-                echo '<p class="error text__center">An error occurred deleting the image!</p>';
-                unset($_SESSION['deleteImage']);
-            } 
-        }
-
-        if (isset($_SESSION['data'])) {
-            if ($_SESSION['data'] === 'failed') {
-                echo '<p class="error text__center">No category added!</p>';
-                unset($_SESSION['data']);
-            } 
-        }
-        ?>
     
         <div class="clearfix"></div>
     </div>

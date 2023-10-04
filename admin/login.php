@@ -25,12 +25,12 @@ if (!isset($_SESSION['autoriz'])) {
             <!-- Login Form -->
             <form action="" method="post" class="form text__center">
                 <div class="form">
-                    <label for="" class="label">Username: </label>
-                    <input type="text" name="username" class="input" placeholder="Enter Your Username...">
+                    <label for="" class="label text_title">Username: </label>
+                    <input type="text" name="username" class="input input_center" placeholder="Enter Your Username...">
                 </div>
                 <div class="form">
-                    <label for="" class="label">Password: </label>
-                    <input type="password" name="pwd" class="input" placeholder="Enter Your Password...">
+                    <label for="" class="label text_title">Password: </label>
+                    <input type="password" name="pwd" class="input input_center" placeholder="Enter Your Password...">
                 </div>
                 <button type="submit" name="submit" class="btn btn__secondary btn_center">Login</button>
             </form>

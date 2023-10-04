@@ -27,12 +27,12 @@ $admin = mysqli_fetch_assoc($admin);
         <form action="" method="post" class="form text__center">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="form__row">
-                <label for="" class="label">Full Name: </label>
-                <input type="text" name="full_name" class="input" value="<?php echo $admin['full_name']; ?>">
+                <label for="" class="label text_title">Full Name: </label>
+                <input type="text" name="full_name" class="input input_center" value="<?php echo $admin['full_name']; ?>">
             </div>
             <div class="form__row">
-                <label for="" class="label">Username: </label>
-                <input type="text" name="username" class="input" value="<?php echo $admin['username']; ?>">
+                <label for="" class="label text_title">Username: </label>
+                <input type="text" name="username" class="input input_center" value="<?php echo $admin['username']; ?>">
             </div>
             <button type="submit" name="submit" class="btn btn__secondary">Update</button>
             <a href="update_admin.php" class="btn btn__primary">Return</a>
@@ -44,10 +44,7 @@ $admin = mysqli_fetch_assoc($admin);
 
 
 if (isset($_SESSION['update'])) {
-    if ($_SESSION['update'] === 'error_update') {
-        echo '<p class="error text__center">Admin not Available!</p>';
-        unset($_SESSION['update']);
-    } elseif ($_SESSION['update'] === 'stmtfailed') {
+    if ($_SESSION['update'] === 'stmtfailed') {
         echo '<p class="error text__center">Failed to update admin!</p>';
         unset($_SESSION['update']);
     } elseif ($_SESSION['update'] === 'invalidname') {

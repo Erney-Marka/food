@@ -24,9 +24,7 @@ require_once 'login_check.php';
                 <li><a href="../admin/manage_category.php">Category</a></li>
                 <li><a href="../admin/manage_food.php">Food</a></li>
                 <li><a href="../admin/manage_order.php">Order</a></li>
-                <li><a href="../admin/logout.php">Logout</a></li>
-
-                
+                <li><a href="../admin/logout.php">Logout</a></li>                
             </ul>
         </div>
     </div>

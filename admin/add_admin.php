@@ -9,15 +9,15 @@ require_once '../includes/signup.inc.php';
 
         <form action="" method="post" class="form text__center">
             <div class="form__row">
-                <label for="" class="label">Full Name: </label>
+                <label for="" class="label text_title">Full Name: </label>
                 <input type="text" name="full_name" class="input" placeholder="Enter Your Name">
             </div>
             <div class="form__row">
-                <label for="" class="label">Username: </label>
+                <label for="" class="label text_title">Username: </label>
                 <input type="text" name="username" class="input" placeholder="Enter Your Username">
             </div>
             <div class="form__row">
-                <label for="" class="label">Password: </label>
+                <label for="" class="label text_title">Password: </label>
                 <input type="password" name="pwd" class="input" placeholder="Enter Your Password">
             </div>
             <button type="submit" name="submit" class="btn btn__secondary">Add New Admin</button>

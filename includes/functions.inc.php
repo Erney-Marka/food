@@ -223,3 +223,50 @@ function createCategory($conn, $title, $imageName, $featured, $active) {
     header('Location: ../admin/manage_category.php');
     exit();
 }
+
+// обновление информации категории
+function updateCategory($conn, $id,  $title, $imageName, $featured, $active)
+{
+    $sql = "UPDATE tbl_category SET 
+    title = ?, 
+    image_name = ?, 
+    featured = ?, 
+    active = ? 
+    WHERE id = ?;";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['update'] = 'stmtfailed';
+        header('Location: ../admin/update_category.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ssssi', $title, $imageName, $featured, $active, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['update'] = 'success';
+    header('Location: ../admin/manage_category.php');
+    exit();
+}
+
+function updateImage ($conn, $id, $imageName) {
+    $sql = "UPDATE tbl_category SET image_name = ? WHERE id = ?;";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['update'] = 'stmtfailed';
+        header('Location: ../admin/update_category.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'si', $imageName, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['update'] = 'success';
+    header('Location: ../admin/manage_category.php');
+    exit();
+}

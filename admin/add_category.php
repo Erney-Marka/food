@@ -9,20 +9,20 @@ require_once '../includes/add_category.inc.php';
 
         <form action="" method="post" class="form text__center" enctype="multipart/form-data">
             <div class="form__row">
-                <label for="title" class="label">Title: </label>
-                <input type="text" name="title" class="input" id="title" placeholder="">
+                <label for="title" class="label text_title">Title: </label>
+                <input type="text" name="title" class="input input_center" id="title" placeholder="">
             </div>
             <div class="form__row">
-                <label for="image" class="label">Select Image: </label>
-                <input type="file" name="image_name" class="input" id="image" placeholder="">
+                <label for="image" class="label text_title">Select Image: </label>
+                <input type="file" name="image_name" class="input input_center" id="image" placeholder="">
             </div>
             <div class="form__row">
-                <label for="featured" class="label">Featured: </label>
+                <label for="featured" class="label text_title">Featured: </label>
                 <input type="radio" name="featured" class="input" id="featured" value="Yes">Yes</input>
                 <input type="radio" name="featured" class="input" id="featured" value="No">No</input>
             </div>
             <div class="form__row">
-                <label for="active" class="label">Active: </label>
+                <label for="active" class="label text_title">Active: </label>
                 <input type="radio" name="active" class="input" id="active" value="Yes">Yes</input>
                 <input type="radio" name="active" class="input" id="active" value="No">No</input>
             </div>
