@@ -10,7 +10,6 @@ if (isset($_POST['delete'])) {
         $path = "../images/categories/{$imageName}";
         $remove = unlink($path);
 
-        // если не удается удалить изображение
         if ($remove == false) {
             $_SESSION['deleteImage'] = 'error_delete';
             header('Location: ../admin/manage_category.php');

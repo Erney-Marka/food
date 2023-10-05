@@ -156,7 +156,8 @@ table tr td {
     margin-top: 2%;
 }
 
-.input {
+.input,
+select {
     border-radius: 10px;
     padding: 0.7% 10%;
     margin: 1%;
@@ -168,10 +169,13 @@ table tr td {
     text-align: center;
 }
 
+.select_center {
+    position: relative;
+}
+
 .form .btn {
     margin-top: 3%;
 }
-
 
 
 /* Вывод ошибок */
@@ -215,16 +219,19 @@ table tr td {
 }
 
 /* CSS for Category IMG*/
-.img__category, .no_img {
+.img__category,
+.no_img {
     display: block;
     margin: 0 auto;
     border-radius: 10px;
 }
+
 .img__category {
     max-width: 150px;
     margin-top: 1%;
     margin-bottom: -1%;
 }
+
 .no_img {
     max-width: 30%;
     background-color: #f9cdd3;

@@ -270,3 +270,23 @@ function updateImage ($conn, $id, $imageName) {
     header('Location: ../admin/manage_category.php');
     exit();
 }
+
+// добавить блюдо
+function createFoods($conn, $title, $description, $price, $categoryId, $imageName, $featured, $active) {
+    $sql = "INSERT INTO `tbl_food` (tittle, description_food, price, image_name, category_id, featured, active) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['addFoods'] = 'stmtfailed';
+        header('Location: ../admin/add_foods');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ssisiss', $title, $description, $price, $imageName, $categoryId, $featured, $active);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['addFoods'] = 'success';
+    header('Location: ../admin/manage_food.php');
+    exit();
+}

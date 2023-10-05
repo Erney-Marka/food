@@ -9,6 +9,7 @@ if ($count > 0) {
     $_SESSION['data'] = 'failed';
 }
 
+$num = 1;
 
 // обработка сообщений
 if (isset($_SESSION['addCategory'])) {
@@ -71,11 +72,11 @@ if (isset($_SESSION['update'])) {
             </tr>
             <?php foreach ($categories as $category) { ?>
             <tr>
-                <td><?php echo $category[0]; ?></td>
+                <td><?php echo $num++; ?></td>
                 <td><?php echo $category[1]; ?></td>
                 <td>
                     <?php 
-                    // echo $category[2]; 
+                    // картинка категории 
                     if ($category[2] != 'none') {
 
                         ?>
@@ -83,9 +84,7 @@ if (isset($_SESSION['update'])) {
                         <?php
                     } else {
                         echo '<p class="error text__center">Image not added.</p>';
-                    }
-
-                    
+                    }                    
                     ?>
                 </td>
                 <td><?php echo $category[3]; ?></td>

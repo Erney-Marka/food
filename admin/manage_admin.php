@@ -1,7 +1,56 @@
 <?php
 require_once 'partials/menu.php';
 $admins = mysqli_query($conn, 'SELECT * FROM tbl_admin');
-$admins = mysqli_fetch_all($admins);
+// $admins = mysqli_fetch_all($admins);
+
+$count = mysqli_num_rows($admins);
+if ($count > 0) {
+    $admins = mysqli_fetch_all($admins);
+} else {
+    $_SESSION['data'] = 'failed';
+}
+
+$num = 1;
+
+// обработка сообщений
+if (isset($_SESSION['data'])) {
+    if ($_SESSION['data'] === 'failed') {
+        echo '<p class="error text__center">No admin added!</p>';
+        unset($_SESSION['data']);
+    } 
+}
+
+if (isset($_SESSION['add']) == 'success') {
+    echo '<p class="error__none text__center">Admin Added Successfully!</p>';
+    unset($_SESSION['add']);
+}
+
+if (isset($_SESSION['delete'])) {
+    if ($_SESSION['delete'] === 'delete') {
+        echo '<p class="error__none text__center">Admin Successfully Removed!</p>';
+        unset($_SESSION['delete']);
+    } elseif ($_SESSION['delete'] === 'error_delete') {
+        echo '<p class="error text__center">A deletion error occurred!</p>';
+        unset($_SESSION['delete']);
+    }
+}
+
+if (isset($_SESSION['update'])) {
+    if ($_SESSION['update'] === 'success') {
+        echo '<p class="error__none text__center">Data changed successfully!</p>';
+        unset($_SESSION['update']);
+    } elseif ($_SESSION['update'] === 'error_update') {
+        echo '<p class="error text__center">Admin not Available!</p>';
+        unset($_SESSION['update']);
+    }
+}
+
+if (isset($_SESSION['change'])) {
+    if ($_SESSION['change'] === 'success') {
+        echo '<p class="error__none text__center">Password changed successfully!</p>';
+        unset($_SESSION['change']);
+    }
+}
 ?>
 
 
@@ -24,7 +73,7 @@ $admins = mysqli_fetch_all($admins);
 
             <?php foreach ($admins as $admin) { ?>
                 <tr>
-                    <td><?php echo $admin[0]; ?></td>
+                    <td><?php echo $num++; ?></td>
                     <td><?php echo $admin[1]; ?></td>
                     <td><?php echo $admin[2]; ?></td>
                     <td class="position">
@@ -37,46 +86,10 @@ $admins = mysqli_fetch_all($admins);
         </table>
         <!-- Table Admin End -->
         <div class="clearfix"></div>
-
-        <?php
-        // var_dump($_SESSION['add']);
-        if (isset($_SESSION['add']) == 'success') {
-            echo '<p class="error__none text__center">Admin Added Successfully!</p>';
-            unset($_SESSION['add']);
-        }
-
-        // var_dump($_SESSION['delete']);
-        if (isset($_SESSION['delete'])) {
-            if ($_SESSION['delete'] === 'delete') {
-                echo '<p class="error__none text__center">Admin Successfully Removed!</p>';
-                unset($_SESSION['delete']);
-            } elseif ($_SESSION['delete'] === 'error_delete') {
-                echo '<p class="error text__center">A deletion error occurred!</p>';
-                unset($_SESSION['delete']);
-            }
-        }
-
-        // var_dump($_SESSION['update']);
-        if (isset($_SESSION['update'])) {
-            if ($_SESSION['update'] === 'success') {
-                echo '<p class="error__none text__center">Data changed successfully!</p>';
-                unset($_SESSION['update']);
-            } elseif ($_SESSION['update'] === 'error_update') {
-                echo '<p class="error text__center">Admin not Available!</p>';
-                unset($_SESSION['update']);
-            }
-        }
-
-        // var_dump($_SESSION['change']);
-        if (isset($_SESSION['change'])) {
-            if ($_SESSION['change'] === 'success') {
-                echo '<p class="error__none text__center">Password changed successfully!</p>';
-                unset($_SESSION['change']);
-            }
-        }
-        ?>
     </div>
 </div>
 <!-- Main Content Section End -->
 
-<?php require_once 'partials/footer.php'; ?>
+<?php 
+require_once 'partials/footer.php'; 
+?>
