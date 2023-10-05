@@ -250,7 +250,7 @@ function updateCategory($conn, $id,  $title, $imageName, $featured, $active)
     header('Location: ../admin/manage_category.php');
     exit();
 }
-
+// обновить картинку категории
 function updateImage ($conn, $id, $imageName) {
     $sql = "UPDATE tbl_category SET image_name = ? WHERE id = ?;";
 
@@ -287,6 +287,56 @@ function createFoods($conn, $title, $description, $price, $categoryId, $imageNam
     mysqli_stmt_close($stmt);
 
     $_SESSION['addFoods'] = 'success';
+    header('Location: ../admin/manage_food.php');
+    exit();
+}
+
+// обновить блюдо
+function updateFood($conn, $id, $title, $description, $price, $categoryId, $imageName, $featured, $active)
+{
+    $sql = "UPDATE tbl_food SET 
+    title = ?, 
+    description_food = ?,
+    price = ?
+    image_name = ?, 
+    category_id = ?,
+    featured = ?, 
+    active = ? 
+    WHERE id = ?;";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['update'] = 'stmtfailed';
+        header('Location: ../admin/update_food.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'ssisissi', $title, $description, $price, $imageName, $categoryId, $featured, $active, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['update'] = 'success';
+    header('Location: ../admin/manage_food.php');
+    exit();
+}
+// обновить картинку блюда
+function updateImageFood ($conn, $id, $imageName) {
+    $sql = "UPDATE tbl_food SET image_name = ? WHERE id = ?;";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['update'] = 'stmtfailed';
+        header('Location: ../admin/update_food.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'si', $imageName, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['update'] = 'success';
     header('Location: ../admin/manage_food.php');
     exit();
 }

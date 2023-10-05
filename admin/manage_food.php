@@ -19,14 +19,40 @@ if (isset($_SESSION['data'])) {
         unset($_SESSION['data']);
     }
 }
-
-// успешное добавление блюда
+// добавление блюда
 if (isset($_SESSION['addFoods'])) {
     if ($_SESSION['addFoods'] === 'success') {
-        echo '<p class="error_none text__center">The dish was successfully added!</p>';
+        echo '<p class="error__none text__center">The dish was successfully added!</p>';
         unset($_SESSION['addFoods']);
     }
 }
+// ошибка загрузки картинки
+if (isset($_SESSION['upload'])) {
+    if ($_SESSION['upload'] === 'failed') {
+        echo '<p class="error text__center">I can not upload an image!</p>';
+        unset($_SESSION['upload']);
+    }
+}
+// ошибка удаления картинки
+if (isset($_SESSION['deleteImage'])) {
+    if ($_SESSION['deleteImage'] === 'error_delete') {
+        echo '<p class="error text__center">An error occurred deleting the image!</p>';
+        unset($_SESSION['deleteImage']);
+    }
+}
+// удаление блюда
+if (isset($_SESSION['delete'])) {
+    if ($_SESSION['delete'] === 'success') {
+        echo '<p class="error__none text__center">The dish was successfully removed!</p>';
+        unset($_SESSION['delete']);
+    } elseif ($_SESSION['delete'] === 'error_delete') {
+        echo '<p class="error text__center">Dish deletion error!</p>';
+        unset($_SESSION['delete']);
+    }
+    
+}
+
+// var_dump($_SESSION['delete']);
 ?>
 
 <!-- Main Content Section Start -->
@@ -53,8 +79,8 @@ if (isset($_SESSION['addFoods'])) {
                 <tr>
                     <td><?php echo $num++; ?></td>
                     <td><?php echo $food[1]; ?></td>
-                    <td><?php echo $food[2]; ?></td>
-                    <td><?php echo $food[3]; ?></td>
+                    <td class="description"><?php echo $food[2]; ?></td>
+                    <td>$<?php echo $food[3]; ?></td>
                     <td>
                         <?php
                         // картинка категории 
@@ -69,17 +95,16 @@ if (isset($_SESSION['addFoods'])) {
                         ?>
                     </td>
                     <td><?php echo $food[5]; ?></td>
-                    <td><?php echo $food[6]; ?></td>
-                    <td><?php echo $food[7]; ?></td>
+                    <td class="radio"><?php echo $food[6]; ?></td>
+                    <td class="radio"><?php echo $food[7]; ?></td>
                     <td>
                         <a href="update_food.php?id=<?php echo $food[0]; ?>" class="btn btn__secondary text__center">Update Food</a>
-                        <a href="delete_food.php?id=<?php echo $food[0]; ?>" class="btn btn__danger text__center">Delete Food</a>
+                        <a href="delete_food.php?id=<?php echo $food[0]; ?>&image_name=<?php echo $food[4]; ?>" class="btn btn__danger text__center">Delete Food</a>
                     </td>
                 </tr>
             <?php } ?>
         </table>
         <!-- Table Food End -->
-
 
         <div class="clearfix"></div>
     </div>

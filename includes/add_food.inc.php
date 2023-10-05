@@ -6,9 +6,7 @@ if(isset($_POST['submit'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $price = $_POST['price'];
-    $categoryId = $_POST['category_id'];
-
-    
+    $categoryId = $_POST['category_id'];    
 
     // загрузить изображение, если не выбрано - значение имени "none"
     if (isset($_FILES['image_name']['name'])) {
@@ -18,10 +16,8 @@ if(isset($_POST['submit'])) {
             // получить расширение           
             $last = explode('.', $imageName);
             $expansion = end($last);
-
             
             // переименовать изображение
-            // в примере - rand(0, 999)
             $date = date("Ymd_H-i-s");
             $imageName = 'Food_' . $date . '.' . $expansion;
 

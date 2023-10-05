@@ -45,7 +45,13 @@ table tr td {
     padding: 1%;
 }
 
-
+.description {
+    width: 20%;
+    padding-left: 2%;
+}
+.radio {
+    width: 8%;
+}
 /* CSS for Button */
 .btn {
     border: none;
@@ -64,10 +70,12 @@ table tr td {
 }
 
 .btn__secondary {
+    padding: 1%;
     background-color: #48c670;
 }
 
 .btn__danger {
+    padding: 1%;
     background-color: #ff6b81;
 }
 
@@ -195,7 +203,6 @@ select {
     background-color: #f8aeb9;
 }
 
-
 /* CSS for footer */
 .footer {
     bottom: 0;
@@ -227,11 +234,11 @@ select {
 }
 
 .img__category {
-    max-width: 150px;
+    max-width: 200px;
     margin-top: 1%;
     margin-bottom: -1%;
 }
-
+ 
 .no_img {
     max-width: 30%;
     background-color: #f9cdd3;
