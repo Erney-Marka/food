@@ -33,6 +33,7 @@
 }
 .text-white{
     color: white;
+    text-shadow: black 0 0 5px;
 }
 
 .clearfix{
@@ -62,6 +63,10 @@ a:hover{
 .btn-primary:hover{
     color: white;
     background-color: #ff4757;
+}
+.btn__order {
+    position: relative;
+    left: 60%;
 }
 h2{
     color: #2f3542;
@@ -170,6 +175,7 @@ fieldset{
 .food-detail{
     font-size: 1rem;
     color: #747d8c;
+    min-height: 50px;
 }
 
 
@@ -222,7 +228,7 @@ fieldset{
     }
 
     .btn{
-        width: 91%;
+        /* width: 91%; */
         padding: 2%;
     }
 
