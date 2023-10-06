@@ -5,10 +5,13 @@
 }
 
 
-.wrapper {
+.wrapper, .wrapper_food {
     padding: 1%;
     width: 80%;
     margin: 0 auto;
+}
+.wrapper_food {
+    width: 90%;
 }
 
 .text__center {
@@ -44,10 +47,15 @@ table tr th {
 table tr td {
     padding: 1%;
 }
-
+.title_food {
+    width: 5%;
+}
 .description {
-    width: 20%;
+    width: 15%;
     padding-left: 2%;
+}
+.category__id__food {
+    width: 8%;
 }
 .radio {
     width: 8%;
@@ -234,7 +242,7 @@ select {
 }
 
 .img__category {
-    max-width: 200px;
+    max-width: 150px;
     margin-top: 1%;
     margin-bottom: -1%;
 }

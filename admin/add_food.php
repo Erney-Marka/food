@@ -58,7 +58,7 @@ if (isset($_SESSION['upload'])) {
                         echo '<option value="' . $category[0] . '" class="option">' . $category[1] . '</option>';
                     }
                 } else {
-                    echo '<option value="0" class="option">No Category Found</option>';
+                    echo '<option value="0">No Category Found</option>';
                 }
                 ?>
                 <!--  -->

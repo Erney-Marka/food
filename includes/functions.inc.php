@@ -273,7 +273,7 @@ function updateImage ($conn, $id, $imageName) {
 
 // добавить блюдо
 function createFoods($conn, $title, $description, $price, $categoryId, $imageName, $featured, $active) {
-    $sql = "INSERT INTO `tbl_food` (tittle, description_food, price, image_name, category_id, featured, active) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO `tbl_food` (title, description_food, price, image_name, category_id, featured, active) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -297,7 +297,7 @@ function updateFood($conn, $id, $title, $description, $price, $categoryId, $imag
     $sql = "UPDATE tbl_food SET 
     title = ?, 
     description_food = ?,
-    price = ?
+    price = ?,
     image_name = ?, 
     category_id = ?,
     featured = ?, 

@@ -11,54 +11,15 @@ if ($count > 0) {
 }
 $num = 1;
 
-// обработка сообщений
-// в базе нет блюд
-if (isset($_SESSION['data'])) {
-    if ($_SESSION['data'] === 'failed') {
-        echo '<p class="error text__center">No dish added!</p>';
-        unset($_SESSION['data']);
-    }
-}
-// добавление блюда
-if (isset($_SESSION['addFoods'])) {
-    if ($_SESSION['addFoods'] === 'success') {
-        echo '<p class="error__none text__center">The dish was successfully added!</p>';
-        unset($_SESSION['addFoods']);
-    }
-}
-// ошибка загрузки картинки
-if (isset($_SESSION['upload'])) {
-    if ($_SESSION['upload'] === 'failed') {
-        echo '<p class="error text__center">I can not upload an image!</p>';
-        unset($_SESSION['upload']);
-    }
-}
-// ошибка удаления картинки
-if (isset($_SESSION['deleteImage'])) {
-    if ($_SESSION['deleteImage'] === 'error_delete') {
-        echo '<p class="error text__center">An error occurred deleting the image!</p>';
-        unset($_SESSION['deleteImage']);
-    }
-}
-// удаление блюда
-if (isset($_SESSION['delete'])) {
-    if ($_SESSION['delete'] === 'success') {
-        echo '<p class="error__none text__center">The dish was successfully removed!</p>';
-        unset($_SESSION['delete']);
-    } elseif ($_SESSION['delete'] === 'error_delete') {
-        echo '<p class="error text__center">Dish deletion error!</p>';
-        unset($_SESSION['delete']);
-    }
-    
-}
-
-// var_dump($_SESSION['delete']);
 ?>
 
 <!-- Main Content Section Start -->
 <div class="main__content">
-    <div class="wrapper">
+    <div class="wrapper_food">
         <h1 class="text__center">Manage Food</h1>
+
+        <?php require_once '../includes/notification_manage_food.inc.php' ?>
+        
         <!-- Button to add Food -->
         <a href="add_food.php" class="btn btn__primary text__center">Add Food</a>
 
@@ -78,7 +39,7 @@ if (isset($_SESSION['delete'])) {
             <?php foreach ($foods as $food) { ?>
                 <tr>
                     <td><?php echo $num++; ?></td>
-                    <td><?php echo $food[1]; ?></td>
+                    <td class="title_food"><?php echo $food[1]; ?></td>
                     <td class="description"><?php echo $food[2]; ?></td>
                     <td>$<?php echo $food[3]; ?></td>
                     <td>
@@ -94,7 +55,7 @@ if (isset($_SESSION['delete'])) {
                         }
                         ?>
                     </td>
-                    <td><?php echo $food[5]; ?></td>
+                    <td class="category__id__food"><?php echo $food[5]; ?></td>
                     <td class="radio"><?php echo $food[6]; ?></td>
                     <td class="radio"><?php echo $food[7]; ?></td>
                     <td>
