@@ -21,7 +21,7 @@ if ($countCategory > 0) {
         <?php
         // отобразить все активные категории
         foreach ($categories as $category) { ?>
-            <a href="category-foods.php">
+            <a href="category-foods.php?category_id=<?php echo $category[0]; ?>">
                 <div class="box-3 float-container">
                     <?php
                     if ($category[2] == 'none') {

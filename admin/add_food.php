@@ -74,7 +74,7 @@ if (isset($_SESSION['upload'])) {
                 <input type="radio" name="active" class="input" id="active" value="Yes">Yes</input>
                 <input type="radio" name="active" class="input" id="active" value="No">No</input>
             </div>
-            <button type="submit" name="submit" class="btn btn__secondary">Add New Category</button>
+            <button type="submit" name="submit" class="btn btn__secondary">Add New Food</button>
             <a href="manage_food.php" class=" btn btn__primary">Return</a>
         </form>
     </div>

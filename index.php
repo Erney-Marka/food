@@ -20,7 +20,7 @@ $countFood = mysqli_num_rows($foods);
 if ($countFood > 0) {
     $foods = mysqli_fetch_all($foods);
 } else {
-    echo '<p class="error">Food not Added</p>';
+    echo '<p class="error text-center">Food not Added</p>';
 }
 ?>
 
@@ -28,7 +28,7 @@ if ($countFood > 0) {
 <section class="food-search text-center">
     <div class="container">
 
-        <form action="food-search.html" method="POST">
+        <form action="food-search.php" method="POST">
             <input type="search" name="search" placeholder="Search for Food.." required>
             <input type="submit" name="submit" value="Search" class="btn btn-primary">
         </form>
@@ -44,12 +44,12 @@ if ($countFood > 0) {
 
 
         <?php foreach ($categories as $category) { ?>
-            <a href="category-foods.php">
+            <a href="category-foods.php?category_id=<?php echo $category[0]; ?>">
                 <div class="box-3 float-container">
                     <?php
                     // доступно ли изображение
                     if ($category[2] == 'none') {
-                        echo '<div class="error">Image not Avialable</div>';
+                        echo '<div class="error">Image not Available</div>';
                     } else { ?>
                         <img src="images/categories/<?php echo $category[2]; ?>" alt="<?php echo $category[1]; ?>" class="img-responsive img-curve">
                     <?php }
@@ -77,7 +77,7 @@ if ($countFood > 0) {
                     <?php
                     // доступно ли изображение
                     if ($food[4] == 'none') {
-                        echo '<div class="error">Image not Avialable</div>';
+                        echo '<div class="error">Image not Available</div>';
                     } else { ?>
                         <img src="images/foods/<?php echo $food[4]; ?>" alt="<?php echo $food[1]; ?>" class="img-responsive img-curve">
                     <?php } ?>
