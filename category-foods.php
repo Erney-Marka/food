@@ -37,6 +37,7 @@ if (isset($_GET['category_id'])) {
         $countFood = mysqli_num_rows($foods);
         if ($countFood > 0) {
             while ($rowFood = mysqli_fetch_assoc($foods)) {
+                $idFood = $rowFood['id'];
                 $titleFood = $rowFood['title'];
                 $descriptionFood = $rowFood['description_food'];
                 $priceFood = $rowFood['price'];
@@ -59,7 +60,7 @@ if (isset($_GET['category_id'])) {
                         <p class="food-detail"><?php echo $descriptionFood; ?></p>
                         <br>
 
-                        <a href="#" class="btn btn-primary btn__order">Order Now</a>
+                        <a href="order.php?foodID=<?php echo $idFood; ?>" class="btn btn-primary btn__order">Order Now</a>
                     </div>
                 </div>
 

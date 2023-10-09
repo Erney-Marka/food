@@ -51,7 +51,7 @@ if ($countFood > 0) {
                     <p class="food-detail"><?php echo $food[2]; ?></p>
                     <br>
 
-                    <a href="#" class="btn btn-primary btn__order">Order Now</a>
+                    <a href="order.php?foodID=<?php echo $food[0]; ?>" class="btn btn-primary btn__order">Order Now</a>
                 </div>
             </div>
         <?php } ?>

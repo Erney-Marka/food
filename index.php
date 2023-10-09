@@ -37,6 +37,15 @@ if ($countFood > 0) {
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
 
+<?php
+if (isset($_SESSION['add'])) {
+    if ($_SESSION['add'] == 'success') {
+        echo '<p class="error__none text-center">The order has been successfully placed!</p>';
+        unset($_SESSION['add']);
+    }
+}
+?>
+
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
     <div class="container">
@@ -90,7 +99,7 @@ if ($countFood > 0) {
                     <p class="food-detail"><?php echo $food[2]; ?></p>
                     <br>
 
-                    <a href="order.php" class="btn btn-primary btn__order">Order Now</a>
+                    <a href="order.php?foodID=<?php echo $food[0]; ?>" class="btn btn-primary btn__order">Order Now</a>
                 </div>
             </div>
         <?php } ?>

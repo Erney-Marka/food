@@ -21,7 +21,10 @@
 .text_title {
     font-weight: 600;
 }
-
+.title {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
 .text_category {
     margin-top: 3%;
 }
@@ -78,12 +81,10 @@ table tr td {
 }
 
 .btn__secondary {
-    padding: 1%;
     background-color: #48c670;
 }
 
 .btn__danger {
-    padding: 1%;
     background-color: #ff6b81;
 }
 
@@ -209,6 +210,12 @@ select {
 
 .error {
     background-color: #f8aeb9;
+}
+.status_ok {
+    color: green;
+}
+.status_fail {
+    color: red;
 }
 
 /* CSS for footer */

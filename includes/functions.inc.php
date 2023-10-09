@@ -340,3 +340,46 @@ function updateImageFood ($conn, $id, $imageName) {
     header('Location: ../admin/manage_food.php');
     exit();
 }
+
+// создание заказа
+function createOrder($conn, $food, $price, $qty, $total, $orderDate, $status, $name, $contact, $email, $address)
+{
+    $sql = "INSERT INTO tbl_order (food, price, qty, total, order_date, status_order, customer_name, customer_contact, customer_email, customer_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['add'] = 'stmtfailed';
+        header('Location: order.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'sdidssssss', $food, $price, $qty, $total, $orderDate, $status, $name, $contact, $email, $address);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['add'] = 'success';
+    header('Location: index.php'); //???
+    exit();
+}
+
+// обновить информацию о заказе
+function updateOrder($conn, $id, $price, $qty, $total, $status, $name, $contact, $email, $address)
+{
+    $sql = "UPDATE tbl_order SET price = ?, qty = ?, total = ?, status_order = ?, customer_name = ?, customer_contact = ?, 	customer_email = ?, customer_address = ? WHERE id = ?;";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $_SESSION['update'] = 'stmtfailed';
+        header('Location: ../admin/update_order.php');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, 'didsssssi', $price, $qty, $total, $status, $name, $contact, $email, $address, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['update'] = 'success';
+    header('Location: ../admin/manage_order.php');
+    exit();
+}

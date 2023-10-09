@@ -56,7 +56,7 @@ require_once 'partials_front/menu.php';
                         <p class="food-detail"><?php echo $description; ?></p>
                         <br>
 
-                        <a href="#" class="btn btn-primary btn__order">Order Now</a>
+                        <a href="order.php?foodID=<?php echo $id; ?>" class="btn btn-primary btn__order">Order Now</a>
                     </div>
                 </div>
 

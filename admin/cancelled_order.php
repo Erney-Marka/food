@@ -2,7 +2,7 @@
 require_once 'partials/menu.php';
 
 // отобразить заказы в обратном порядке
-$sqlOrder = "SELECT * FROM tbl_order WHERE status_order != 'Delivered' AND status_order != 'Cancelled' ORDER BY id DESC;";
+$sqlOrder = "SELECT * FROM tbl_order WHERE status_order = 'Cancelled' ORDER BY id DESC;";
 $orders = mysqli_query($conn, $sqlOrder);
 $countOrder = mysqli_num_rows($orders);
 
@@ -19,9 +19,8 @@ if (isset($_SESSION['update'])) {
 <!-- Main Content Section Start -->
 <div class="main__content">
     <div class="wrapper">
-        <h1 class="text__center">Manage Order</h1>
-        <a href="delivered_order.php" class="btn btn__secondary">Delivered</a>
-        <a href="cancelled_order.php" class="btn btn__danger">Cancelled</a>
+        <h1 class="text__center">Cancelled Order</h1>
+        <a href="manage_order.php" class="btn btn__primary">Return</a>
 
         <!-- Table Order Start -->
         <table class="tbl__full">
@@ -37,7 +36,6 @@ if (isset($_SESSION['update'])) {
                 <th>Customer Contact</th>
                 <th>Customer Email</th>
                 <th>Customer Address</th>
-                <th>Action</th>
             </tr>
             <?php
             if ($countOrder > 0) {
@@ -67,9 +65,6 @@ if (isset($_SESSION['update'])) {
                         <td><?php echo $contact; ?></td>
                         <td><?php echo $email; ?></td>
                         <td><?php echo $address; ?></td>
-                        <td>
-                            <a href="update_order.php?id=<?php echo $id; ?>" class="btn btn__secondary text__center">Update Order</a>
-                        </td>
                     </tr>
 
             <?php }
