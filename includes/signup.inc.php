@@ -4,8 +4,8 @@
 if (isset($_POST['submit'])) {
 
     // Получить данные из формы
-    $fullName = $_POST['full_name'];
-    $username = $_POST['username'];
+    $fullName = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $pwd = md5($_POST['pwd']);
 
     // включить файл функций

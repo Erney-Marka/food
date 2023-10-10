@@ -8,7 +8,7 @@ require_once 'partials_front/menu.php';
         
         <?php
         // получить ключевое слово для поиска
-        $search = $_POST['search'];
+        $search = mysqli_real_escape_string($conn, $_POST['search']);
         ?>
 
         <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>
@@ -26,7 +26,6 @@ require_once 'partials_front/menu.php';
 
         <?php
         $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR 	description_food LIKE '%$search%';";
-
         $resultConn = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($resultConn);
 
@@ -63,7 +62,7 @@ require_once 'partials_front/menu.php';
         <?php
             }
         } else {
-            echo '<div class="error">Food not Found!</div>';
+            echo '<div class="error text__center">Food not Found!</div>';
         }
         ?>
 

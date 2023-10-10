@@ -15,27 +15,56 @@
         ?>
 
         <div class="col-4 text__center">
-            <h1>5</h1>
+
+            <?php
+            $sqlCategory = "SELECT * FROM tbl_category";
+            $category = mysqli_query($conn, $sqlCategory);
+            $countCategory = mysqli_num_rows($category);
+            ?>
+
+            <h1><?php echo $countCategory; ?></h1>
             <br>
             Categories
         </div>
 
         <div class="col-4 text__center">
-            <h1>5</h1>
+
+            <?php
+            $sqlFood = "SELECT * FROM tbl_food";
+            $food = mysqli_query($conn, $sqlFood);
+            $countFood = mysqli_num_rows($food);
+            ?>
+
+            <h1><?php echo $countFood; ?></h1>
             <br>
-            Categories
+            Foods
         </div>
 
         <div class="col-4 text__center">
-            <h1>5</h1>
+
+            <?php
+            $sqlOrder = "SELECT * FROM tbl_order";
+            $order = mysqli_query($conn, $sqlOrder);
+            $countOrder = mysqli_num_rows($order);
+            ?>
+
+            <h1><?php echo $countOrder; ?></h1>
             <br>
-            Categories
+            Total Orders
         </div>
 
         <div class="col-4 text__center">
-            <h1>5</h1>
+
+            <?php
+            $sqlRevenue = "SELECT SUM(total) AS Total FROM tbl_order WHERE status_order = 'Delivered';";
+            $revenue = mysqli_query($conn, $sqlRevenue);
+            $rowRevenue = mysqli_fetch_assoc($revenue);
+            $totalRevenue = $rowRevenue['Total'];
+            ?>
+
+            <h1>$<?php echo $totalRevenue; ?></h1>
             <br>
-            Categories
+            Revenue Generated
         </div>
 
         <div class="clearfix"></div>

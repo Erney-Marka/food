@@ -3,7 +3,7 @@
 if (isset($_POST['submit'])) {
     require_once 'functions.inc.php';
 
-    $title = $_POST['title'];
+    $title = mysqli_real_escape_string($conn,$_POST['title']);
 
     // загрузить изображение, если не выбрано - значение имени "none"
     if (isset($_FILES['image_name']['name'])) {

@@ -11,10 +11,10 @@ if (isset($_POST['submit'])) {
     $orderDate = date("Y-m-d h:i:sa");
     $status = 'Ordered'; // Ordered, On Ordered, Delivered, Cancelled
 
-    $name = $_POST['full-name'];
-    $contact = $_POST['contact'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
+    $name = mysqli_real_escape_string($conn,$_POST['full-name']);
+    $contact = mysqli_real_escape_string($conn,$_POST['contact']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $address = mysqli_real_escape_string($conn,$_POST['address']);
 
     require_once 'functions.inc.php';
 

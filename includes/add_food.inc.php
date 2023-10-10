@@ -3,8 +3,8 @@
 if(isset($_POST['submit'])) {
     require_once 'functions.inc.php';
 
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+    $title = mysqli_real_escape_string($conn,$_POST['title']);
+    $description = mysqli_real_escape_string($conn,$_POST['description']);
     $price = $_POST['price'];
     $categoryId = $_POST['category_id'];    
 

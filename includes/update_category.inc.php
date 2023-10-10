@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     
 
     $id = $_POST['id'];
-    $title = $_POST['title'];
+    $title = mysqli_real_escape_string($conn,$_POST['title']);
     $currentImage = $_POST['image_name'];
     $featured = $_POST['featured'];
     $active = $_POST['active'];

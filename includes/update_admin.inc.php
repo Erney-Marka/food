@@ -2,9 +2,9 @@
 
 if (isset($_POST['submit'])) {
 
-    $id = $_POST['id'];
-    $fullName = $_POST['full_name'];
-    $username = $_POST['username'];
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $fullName = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $username = mysqli_real_escape_string($conn,$_POST['username']);
 
     require_once 'functions.inc.php';
 
